@@ -13,7 +13,6 @@ class NewTransaction extends StatefulWidget {
 }
 
 class _NewTransactionState extends State<NewTransaction> {
-  //NewTransaction({Key? key}) : super(key: key);
   final _titleController = TextEditingController();
 
   final _amountController = TextEditingController();

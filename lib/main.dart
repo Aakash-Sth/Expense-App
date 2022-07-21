@@ -8,9 +8,6 @@ import 'widgets/transaction.dart';
 import 'widgets/transaction_list.dart';
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // SystemChrome.setPreferredOrientations(
-  //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(MyHome());
 }
 
@@ -23,7 +20,6 @@ class MyHome extends StatelessWidget {
           primarySwatch: Colors.purple,
           accentColor: Color.fromARGB(255, 255, 213, 63),
           fontFamily: 'Quicksand',
-          //textTheme: ThemeData.raw().textTheme.copyWith(),
           appBarTheme: AppBarTheme(
               textTheme: ThemeData.light().textTheme.copyWith(
                   titleMedium: TextStyle(fontWeight: FontWeight.bold)))),
@@ -38,33 +34,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  //const ({ Key? key }) : super(key: key);
-  final List<Transaction> _transactions = [
-    Transaction(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now().subtract(Duration(days: 4)),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Weekly Groceries',
-      amount: 16.53,
-      date: DateTime.now(),
-    ),
-    // Transaction(
-    //   id: 't3',
-    //   title: 'New Shoes',
-    //   amount: 29.77,
-    //   date: DateTime.now().subtract(Duration(days: 2)),
-    // ),
-    // Transaction(
-    //   id: 't4',
-    //   title: 'New Shoes',
-    //   amount: 15.99,
-    //   date: DateTime.now().subtract(Duration(days: 2)),
-    // ),
-  ];
+  final List<Transaction> _transactions = [];
 
   void _addNewTransaction(
       String titletxt, double amountTxt, DateTime selectedDate) {
@@ -91,14 +61,7 @@ class _MyAppState extends State<MyApp> {
         context: ctx,
         isScrollControlled: true,
         builder: (context) =>
-            Container(child: NewTransaction(_addNewTransaction))
-        // builder: (_) {
-        //   return GestureDetector(
-        //     child: NewTransaction(_addNewTransaction),
-        //     behavior: HitTestBehavior.opaque,
-        //   );
-        // }
-        );
+            Container(child: NewTransaction(_addNewTransaction)));
   }
 
   List<Transaction> get _recentTransactions {
@@ -137,8 +100,6 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
       appBar: _appBar,
       body: ListView(
-        // mainAxisAlignment: MainAxisAlignment.spaceAround,
-        //crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           if (isLandscape)
             (Container(
@@ -166,7 +127,7 @@ class _MyAppState extends State<MyApp> {
                 height: (mediaQuery.size.height -
                         _appBar.preferredSize.height -
                         mediaQuery.padding.top) *
-                    0.23,
+                    0.26,
                 child: Chart(_recentTransactions))),
           if (!isLandscape)
             (txListWidget)
@@ -176,7 +137,7 @@ class _MyAppState extends State<MyApp> {
                     height: (mediaQuery.size.height -
                             _appBar.preferredSize.height -
                             mediaQuery.padding.top) *
-                        0.6,
+                        0.7,
                     child: Chart(_recentTransactions))
                 : txListWidget
         ],

@@ -84,18 +84,12 @@ class _TransactionListState extends State<TransactionList> {
                                 color: Color.fromARGB(255, 255, 66, 66),
                               ),
                               onPressed: () =>
-                                  widget.dltTx(widget.transactions[index].id)
-
-                              //widget.changeState();
-                              ,
+                                  widget.dltTx(widget.transactions[index].id),
                             ),
                     ),
                   );
                 },
                 itemCount: widget.transactions.length,
-                //     children: transactions.map((tx) {
-                //   return
-                // }).toList()),
               )));
   }
 }
