@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:expense_app/widgets/chart_bar.dart';
 import 'package:expense_app/widgets/transaction.dart';
 import 'package:intl/intl.dart';
@@ -37,9 +35,9 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         elevation: 6,
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

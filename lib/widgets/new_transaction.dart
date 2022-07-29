@@ -1,12 +1,10 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class NewTransaction extends StatefulWidget {
   final Function newTx;
 
-  NewTransaction(this.newTx);
+  const NewTransaction(this.newTx);
 
   @override
   State<NewTransaction> createState() => _NewTransactionState();
@@ -36,7 +34,7 @@ class _NewTransactionState extends State<NewTransaction> {
     showDatePicker(
             context: context,
             initialDate: DateTime.now(),
-            firstDate: DateTime.now().subtract(Duration(days: 6)),
+            firstDate: DateTime.now().subtract(const Duration(days: 6)),
             lastDate: DateTime.now())
         .then((pickedDate) {
       if (pickedDate == null) {
@@ -60,18 +58,18 @@ class _NewTransactionState extends State<NewTransaction> {
         child: Column(
           children: <Widget>[
             TextField(
-              decoration: InputDecoration(labelText: 'Title'),
+              decoration: const InputDecoration(labelText: 'Title'),
               controller: _titleController,
               onSubmitted: (_) => _submit(),
             ),
             TextField(
-              decoration: InputDecoration(labelText: 'Amount'),
+              decoration: const InputDecoration(labelText: 'Amount'),
               controller: _amountController,
               keyboardType: TextInputType.number,
               onSubmitted: (_) => _submit(),
             ),
             Container(
-              margin: EdgeInsets.only(top: 10),
+              margin: const EdgeInsets.only(top: 10),
               child: Row(
                 children: <Widget>[
                   Expanded(
@@ -79,12 +77,12 @@ class _NewTransactionState extends State<NewTransaction> {
                       _selectedDate == null
                           ? "No date chosen."
                           : 'Date : ${DateFormat('MMM d, yyyy').format(_selectedDate)}',
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ),
                   TextButton(
                       onPressed: _datePicker,
-                      child: Text("Choose date",
+                      child: const Text("Choose date",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 15.5)))
                 ],
@@ -92,12 +90,10 @@ class _NewTransactionState extends State<NewTransaction> {
             ),
             ElevatedButton(
               onPressed: _submit,
-              child: Text(
+              child: const Text(
                 'Add Transaction',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              style: TextButton.styleFrom(
-                  onSurface: Color.fromARGB(255, 155, 0, 245)),
             )
           ],
         ),
